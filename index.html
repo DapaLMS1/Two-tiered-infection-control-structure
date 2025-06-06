@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infection Control Learning Activity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Define Brand Colors as CSS variables for easy management */
         :root {
@@ -13,6 +14,12 @@
             --brand-green-dark: #7ABF49;
             --brand-green-light: #96BF78;
             --brand-light-grey: #F2F2F2;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif; /* Apply Open Sans as the primary font */
+            color: #333; /* A standard dark grey for general text */
+            margin: 0; /* Remove default body margin */
         }
 
         /* Basic styling for layout and hidden content */
@@ -76,10 +83,10 @@
             transform: translateX(100%);
             opacity: 0;
             transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Smooth transition */
-            background-color: var(--brand-light-grey); /* **Your specified background color** */
+            background-color: var(--brand-light-grey); /* Your specified background color */
             padding: 15px;
-            border: 1px solid var(--brand-purple-dark); /* **Your specified border around container** */
-            border-left: 5px solid var(--brand-purple-dark); /* **Your specified left border color** */
+            border: 1px solid var(--brand-purple-dark); /* Your specified border around container */
+            border-left: 5px solid var(--brand-purple-dark); /* Your specified left border color */
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             border-radius: 4px; /* Rounded corners for info box */
         }
@@ -90,12 +97,14 @@
         }
 
         h2, h3 {
+            font-family: 'Open Sans', sans-serif; /* Ensure headings use Open Sans */
             color: var(--brand-purple-dark); /* Heading color */
             margin-top: 0;
             margin-bottom: 15px;
         }
 
         p, ul {
+            font-family: 'Open Sans', sans-serif; /* Ensure paragraphs and lists use Open Sans */
             color: #555; /* General text color */
             line-height: 1.6;
             margin-bottom: 10px;
@@ -121,7 +130,7 @@
 
         <div class="row">
             <div class="image-wrapper" onclick="toggleInfo(this, 'infectionControlInfo')">
-                <img src="https://github.com/DapaLMS1/Two-tiered-infection-control-structure/blob/main/Standard%20Precautions.png">
+                <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Standard%20Precautions.png" alt="Standard Precautions Icon">
                 <p>Click to learn about Infection Control!</p>
             </div>
             <div id="infectionControlInfo" class="info-wrapper">
@@ -151,7 +160,7 @@
 
         <div class="row">
             <div class="image-wrapper" onclick="toggleInfo(this, 'anotherTopicInfo')">
-                <img src="https://github.com/DapaLMS1/Two-tiered-infection-control-structure/blob/main/Transmission-based%20Precautions.png">
+                <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Transmission-based%20Precautions.png" alt="Transmission-based Precautions Icon">
                 <p>Click to explore another topic!</p>
             </div>
             <div id="anotherTopicInfo" class="info-wrapper">
