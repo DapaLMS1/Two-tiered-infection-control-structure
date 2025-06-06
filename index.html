@@ -20,15 +20,37 @@
             font-family: 'Open Sans', sans-serif; /* Apply Open Sans as the primary font */
             color: #333; /* A standard dark grey for general text */
             margin: 0; /* Remove default body margin */
+            display: flex; /* Use flexbox to center the main container */
+            justify-content: center; /* Center horizontally */
+            padding: 20px; /* Add some padding around the whole activity */
+            background-color: var(--brand-light-grey); /* Overall background */
         }
 
-        /* Basic styling for layout and hidden content */
+        .main-activity-wrapper {
+            width: 100%; /* Take full width of parent (body) */
+            max-width: 630px; /* **Set max-width for the whole activity** */
+            background-color: white; /* Background for the entire activity content area */
+            border: 1px solid var(--brand-purple-medium);
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Slightly stronger shadow for the main container */
+            overflow: hidden; /* Ensure nothing spills out */
+        }
+
+        .activity-title {
+            background-color: var(--brand-purple-dark);
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            margin: 0; /* Remove default margin from h1 */
+            font-size: 1.8em;
+            border-bottom: 3px solid var(--brand-green-dark);
+        }
+
         .container {
             display: flex;
             flex-direction: column;
             gap: 20px; /* Space between rows */
-            padding: 20px;
-            background-color: var(--brand-light-grey); /* Overall background */
+            padding: 20px; /* Padding inside the main activity wrapper */
         }
 
         .row {
@@ -39,7 +61,7 @@
             overflow: hidden; /* Hide overflowing content during animation */
             background-color: white; /* Background for each row */
             border-radius: 8px; /* Slightly rounded corners for rows */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for rows */
         }
 
         .image-wrapper {
@@ -96,7 +118,7 @@
             opacity: 1; /* Fade in */
         }
 
-        h2, h3 {
+        h3 { /* Changed h2 to h3 for sub-headings within info boxes */
             font-family: 'Open Sans', sans-serif; /* Ensure headings use Open Sans */
             color: var(--brand-purple-dark); /* Heading color */
             margin-top: 0;
@@ -126,50 +148,51 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="main-activity-wrapper">
+        <h1 class="activity-title">Two-Tiered Infection Control System</h1>
 
-        <div class="row">
-            <div class="image-wrapper" onclick="toggleInfo(this, 'infectionControlInfo')">
-                <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Standard%20Precautions.png" alt="Standard Precautions Icon">
-                <p>Click to learn about Infection Control!</p>
+        <div class="container">
+
+            <div class="row">
+                <div class="image-wrapper" onclick="toggleInfo(this, 'standardPrecautionsInfo')">
+                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Standard%20Precautions.png" alt="Standard Precautions Icon">
+                    <p>Standard Precautions</p>
+                </div>
+                <div id="standardPrecautionsInfo" class="info-wrapper">
+                    <h3>Standard Precautions</h3>
+                    <p>
+                        These are the minimum infection control practices used for all patients,
+                        regardless of their health status. They treat all blood and saliva as
+                        potentially infectious.
+                    </p>
+                </div>
             </div>
-            <div id="infectionControlInfo" class="info-wrapper">
-                <h2>Two-Tiered Infection Control System</h2>
-                <p>
-                    <strong>Standard Precautions:</strong> These are the minimum infection control
-                    practices used for all patients, regardless of their health status. They treat all blood and saliva as
-                    potentially infectious.
-                </p>
-                <p>
-                    <strong>Transmission-Based Precautions:</strong>
-                    These are additional precautions for patients known or suspected to have specific infections spread through:
-                </p>
-                <ul>
-                    <li>
-                        <strong>Airborne Transmission:</strong> (e.g., TB, measles).
-                    </li>
-                    <li>
-                        <strong>Droplet Transmission:</strong> (e.g., mumps, influenza).
-                    </li>
-                    <li>
-                        <strong>Contact Transmission:</strong> (e.g., herpes, Hepatitis A).
-                    </li>
-                </ul>
+
+            <div class="row">
+                <div class="image-wrapper" onclick="toggleInfo(this, 'transmissionPrecautionsInfo')">
+                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Transmission-based%20Precautions.png" alt="Transmission-based Precautions Icon">
+                    <p>Transmission-Based Precautions</p>
+                </div>
+                <div id="transmissionPrecautionsInfo" class="info-wrapper">
+                    <h3>Transmission-Based Precautions</h3>
+                    <p>
+                        These are additional precautions for patients known or suspected to have specific infections spread through:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Airborne Transmission:</strong> (e.g., TB, measles).
+                        </li>
+                        <li>
+                            <strong>Droplet Transmission:</strong> (e.g., mumps, influenza).
+                        </li>
+                        <li>
+                            <strong>Contact Transmission:</strong> (e.g., herpes, Hepatitis A).
+                        </li>
+                    </ul>
+                </div>
             </div>
+
         </div>
-
-        <div class="row">
-            <div class="image-wrapper" onclick="toggleInfo(this, 'anotherTopicInfo')">
-                <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Transmission-based%20Precautions.png" alt="Transmission-based Precautions Icon">
-                <p>Click to explore another topic!</p>
-            </div>
-            <div id="anotherTopicInfo" class="info-wrapper">
-                <h3>Details for Another Learning Topic</h3>
-                <p>This is where you could add more content for a second learning topic. The same click-and-slide functionality applies.</p>
-                <p>You can customize this section to cover any other relevant information you want to include in your activity.</p>
-            </div>
-        </div>
-
     </div>
 
     <script>
