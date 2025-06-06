@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infection Control Learning Activity</title>
+    <style>
+        /* Define Brand Colors as CSS variables for easy management */
+        :root {
+            --brand-purple-dark: #532A8C;
+            --brand-purple-medium: #9D8ABB;
+            --brand-purple-light: #C3ACE8;
+            --brand-green-dark: #7ABF49;
+            --brand-green-light: #96BF78;
+            --brand-light-grey: #F2F2F2;
+        }
+
+        /* Basic styling for layout and hidden content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Space between rows */
+            padding: 20px;
+            background-color: var(--brand-light-grey); /* Overall background */
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start; /* Align items to the top */
+            border: 1px solid var(--brand-purple-medium); /* Border around each row */
+            padding: 15px;
+            overflow: hidden; /* Hide overflowing content during animation */
+            background-color: white; /* Background for each row */
+            border-radius: 8px; /* Slightly rounded corners for rows */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+
+        .image-wrapper {
+            flex-shrink: 0; /* Prevent image from shrinking */
+            width: 200px; /* Fixed width for the image container */
+            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid var(--brand-purple-light); /* Separator line */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Remove extra space below image */
+            border: 2px solid var(--brand-green-dark); /* Border around image */
+            border-radius: 4px; /* Slightly rounded corners for image */
+            transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+        }
+
+        .image-wrapper img:hover {
+            transform: scale(1.03); /* Slight zoom on hover */
+        }
+
+        .image-wrapper p {
+            font-size: 0.9em;
+            color: var(--brand-purple-dark);
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .info-wrapper {
+            flex-grow: 1; /* Allow info to take remaining space */
+            margin-left: 20px; /* Space between image and info */
+            position: relative;
+            /* Initially hide content to the right */
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Smooth transition */
+            background-color: var(--brand-light-grey); /* **Your specified background color** */
+            padding: 15px;
+            border: 1px solid var(--brand-purple-dark); /* **Your specified border around container** */
+            border-left: 5px solid var(--brand-purple-dark); /* **Your specified left border color** */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            border-radius: 4px; /* Rounded corners for info box */
+        }
+
+        .info-wrapper.active {
+            transform: translateX(0); /* Slide in */
+            opacity: 1; /* Fade in */
+        }
+
+        h2, h3 {
+            color: var(--brand-purple-dark); /* Heading color */
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        p, ul {
+            color: #555; /* General text color */
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul ul { /* For nested lists like the transmission types */
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        strong {
+            color: var(--brand-green-dark); /* Emphasize bold text with a brand color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="image-wrapper" onclick="toggleInfo(this, 'infectionControlInfo')">
+                <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/main/images/infection_control_icon.png" alt="Infection Control System Icon">
+                <p>Click to learn about Infection Control!</p>
+            </div>
+            <div id="infectionControlInfo" class="info-wrapper">
+                <h2>Two-Tiered Infection Control System</h2>
+                <p>
+                    <strong>Standard Precautions:</strong> These are the minimum infection control
+                    practices used for all patients, regardless of their health status. They treat all blood and saliva as
+                    potentially infectious.
+                </p>
+                <p>
+                    <strong>Transmission-Based Precautions:</strong>
+                    These are additional precautions for patients known or suspected to have specific infections spread through:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Airborne Transmission:</strong> (e.g., TB, measles).
+                    </li>
+                    <li>
+                        <strong>Droplet Transmission:</strong> (e.g., mumps, influenza).
+                    </li>
+                    <li>
+                        <strong>Contact Transmission:</strong> (e.g., herpes, Hepatitis A).
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="image-wrapper" onclick="toggleInfo(this, 'anotherTopicInfo')">
+                <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/main/images/another_topic_icon.png" alt="Another Learning Topic Icon">
+                <p>Click to explore another topic!</p>
+            </div>
+            <div id="anotherTopicInfo" class="info-wrapper">
+                <h3>Details for Another Learning Topic</h3>
+                <p>This is where you could add more content for a second learning topic. The same click-and-slide functionality applies.</p>
+                <p>You can customize this section to cover any other relevant information you want to include in your activity.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleInfo(clickedImageWrapper, infoId) {
+            const infoElement = document.getElementById(infoId);
+
+            // Close any open info panels in the same row
+            const currentRow = clickedImageWrapper.closest('.row');
+            const infoWrappersInRow = currentRow.querySelectorAll('.info-wrapper');
+            infoWrappersInRow.forEach(wrapper => {
+                if (wrapper.id !== infoId && wrapper.classList.contains('active')) {
+                    wrapper.classList.remove('active');
+                }
+            });
+
+            // Toggle the 'active' class to slide in/out the current info
+            infoElement.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
