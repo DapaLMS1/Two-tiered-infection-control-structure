@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infection Control Learning Activity</title>
+    <title>Risk Control Learning Activity</title> <!-- Updated title to reflect broader scope -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Define Brand Colors as CSS variables for easy management */
@@ -27,8 +27,8 @@
         }
 
         .main-activity-wrapper {
-            width: 100%; /* Take full width of parent (body) */
-            max-width: 630px; /* **Set max-width for the whole activity** */
+            width: 90%; /* Take 90% width of parent (body) for responsiveness */
+            max-width: 900px; /* Set a larger max-width for the whole activity */
             background-color: white; /* Background for the entire activity content area */
             border: 1px solid var(--brand-purple-medium);
             border-radius: 8px;
@@ -43,6 +43,7 @@
             padding: 15px 20px;
             margin: 0; /* Remove default margin from h1 */
             font-size: 1.8em;
+            font-weight: bold; /* Ensure main title is bold */
             border-bottom: 3px solid var(--brand-green-dark);
         }
 
@@ -105,10 +106,10 @@
             transform: translateX(100%);
             opacity: 0;
             transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Smooth transition */
-            background-color: var(--brand-light-grey); /* Your specified background color */
+            background-color: var(--brand-light-grey); /* Your specified background colour */
             padding: 15px;
             border: 1px solid var(--brand-purple-dark); /* Your specified border around container */
-            border-left: 5px solid var(--brand-purple-dark); /* Your specified left border color */
+            border-left: 5px solid var(--brand-purple-dark); /* Your specified left border colour */
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             border-radius: 4px; /* Rounded corners for info box */
         }
@@ -120,14 +121,15 @@
 
         h3 { /* Changed h2 to h3 for sub-headings within info boxes */
             font-family: 'Open Sans', sans-serif; /* Ensure headings use Open Sans */
-            color: var(--brand-purple-dark); /* Heading color */
+            color: var(--brand-purple-dark); /* Heading colour */
             margin-top: 0;
             margin-bottom: 15px;
+            font-weight: bold; /* Ensure h3 headings are bold */
         }
 
         p, ul {
             font-family: 'Open Sans', sans-serif; /* Ensure paragraphs and lists use Open Sans */
-            color: #555; /* General text color */
+            color: #555; /* General text colour */
             line-height: 1.6;
             margin-bottom: 10px;
         }
@@ -142,51 +144,87 @@
         }
 
         strong {
-            color: var(--brand-green-dark); /* Emphasize bold text with a brand color */
+            color: var(--brand-green-dark); /* Emphasise bold text with a brand colour */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column; /* Stack image and info vertically */
+                align-items: center; /* Center items when stacked */
+            }
+
+            .image-wrapper {
+                width: 100%; /* Image wrapper takes full width */
+                border-right: none; /* Remove vertical separator */
+                border-bottom: 1px solid var(--brand-purple-light); /* Add horizontal separator */
+                padding-bottom: 15px; /* Add padding below image */
+            }
+
+            .info-wrapper {
+                margin-left: 0; /* Remove left margin when stacked */
+                margin-top: 20px; /* Add space above info wrapper */
+                width: 100%; /* Info wrapper takes full width */
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="main-activity-wrapper">
-        <h1 class="activity-title">Two-Tiered Infection Control System</h1>
+        <h1 class="activity-title">A Two-Tiered Approach to Comprehensive Risk Control</h1> <!-- Updated main title -->
 
         <div class="container">
 
             <div class="row">
                 <div class="image-wrapper" onclick="toggleInfo(this, 'standardPrecautionsInfo')">
-                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Standard%20Precautions.png" alt="Standard Precautions Icon">
-                    <p>Standard Precautions</p>
+                    <!-- Updated image source and alt text -->
+                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Tier%201%20Foundational%20Universal%20Risk%20Controls.png" alt="Tier 1 Foundational Universal Risk Controls Icon">
+                    <p>Tier 1 Foundational/Universal Risk Controls</p> <!-- Removed colon -->
                 </div>
                 <div id="standardPrecautionsInfo" class="info-wrapper">
-                    <h3>Standard Precautions</h3>
+                    <h3>Tier 1: Foundational/Universal Risk Controls</h3>
                     <p>
-                        These are the minimum infection control practices used for all patients,
-                        regardless of their health status. They treat all blood and saliva as
-                        potentially infectious.
+                        These are the <strong>minimum, baseline safety practices</strong> used for all routine operations and individuals, regardless of specific known risks. They're the everyday precautions dental practices put in place:
                     </p>
+                    <ul>
+                        <li>
+                            <strong>Infection Control:</strong> This includes <strong>Standard Precautions</strong> like consistent hand hygiene, universal <strong>Personal Protective Equipment (PPE)</strong> such as gloves and masks, and thorough instrument sterilisation for all patients. It operates on the principle of treating all bodily fluids as potentially infectious.
+                        </li>
+                        <li>
+                            <strong>Other Risks:</strong>
+                            <ul>
+                                <li><strong>Ergonomics:</strong> We ensure universally ergonomic operatory setups and promote regular staff stretching to prevent strain.</li>
+                                <li><strong>Chemical Safety:</strong> This involves the secure storage and clear labelling of all chemicals, alongside general ventilation throughout the practice.</li>
+                                <li><strong>Physical Hazards:</strong> Keeping walkways clear, immediately cleaning up spills, and conducting routine equipment checks are essential to prevent accidents.</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
             <div class="row">
                 <div class="image-wrapper" onclick="toggleInfo(this, 'transmissionPrecautionsInfo')">
-                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Transmission-based%20Precautions.png" alt="Transmission-based Precautions Icon">
-                    <p>Transmission-Based Precautions</p>
+                    <!-- Updated image source and alt text -->
+                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Tier%202%20Enhanced%20Specific%20Risk%20Controls.png" alt="Tier 2 Enhanced Specific Risk Controls Icon">
+                    <p>Tier 2 Enhanced/Specific Risk Controls</p> <!-- Removed colon -->
                 </div>
                 <div id="transmissionPrecautionsInfo" class="info-wrapper">
-                    <h3>Transmission-Based Precautions</h3>
+                    <h3>Tier 2: Enhanced/Specific Risk Controls</h3>
                     <p>
-                        These are additional precautions for patients known or suspected to have specific infections spread through:
+                        These are <strong>additional, targeted measures</strong> implemented when specific, elevated hazards are identified or suspected. They build upon the foundational controls, providing an extra layer of protection when needed:
                     </p>
                     <ul>
                         <li>
-                            <strong>Airborne Transmission:</strong> (e.g., TB, measles).
+                            <strong>Infection Control:</strong> This involves <strong>Transmission-Based Precautions</strong>, such as using P2 respirators for airborne pathogens or implementing isolation protocols when a patient is known or suspected to have a specific transmissible infection (e.g., airborne, droplet, or contact).
                         </li>
                         <li>
-                            <strong>Droplet Transmission:</strong> (e.g., mumps, influenza).
-                        </li>
-                        <li>
-                            <strong>Contact Transmission:</strong> (e.g., herpes, Hepatitis A).
+                            <strong>Other Risks:</strong>
+                            <ul>
+                                <li><strong>Ergonomics:</strong> We use specialised ergonomic tools or workstation redesign when staff experience specific musculoskeletal discomfort, tailoring solutions to their needs.</li>
+                                <li><strong>Chemical Safety:</strong> This includes requiring specialised PPE, like chemical-resistant gloves or respirators, when handling highly volatile substances.</li>
+                                <li><strong>Physical Hazards:</strong> We implement specific lockout/tagout procedures for equipment undergoing repair to prevent accidental activation.</li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
