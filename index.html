@@ -1,255 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risk Control Learning Activity</title> <!-- Updated title to reflect broader scope -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Define Brand Colors as CSS variables for easy management */
-        :root {
-            --brand-purple-dark: #532A8C;
-            --brand-purple-medium: #9D8ABB;
-            --brand-purple-light: #C3ACE8;
-            --brand-green-dark: #7ABF49;
-            --brand-green-light: #96BF78;
-            --brand-light-grey: #F2F2F2;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk Control Learning Activity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-purple-dark: #532A8C;
+      --brand-purple-medium: #9D8ABB;
+      --brand-purple-light: #C3ACE8;
+      --brand-green-dark: #7ABF49;
+      --brand-green-light: #96BF78;
+      --brand-light-grey: #F2F2F2;
+    }
 
-        body {
-            font-family: 'Open Sans', sans-serif; /* Apply Open Sans as the primary font */
-            color: #333; /* A standard dark grey for general text */
-            margin: 0; /* Remove default body margin */
-            display: flex; /* Use flexbox to center the main container */
-            justify-content: center; /* Center horizontally */
-            padding: 20px; /* Add some padding around the whole activity */
-            background-color: var(--brand-light-grey); /* Overall background */
-        }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      background-color: var(--brand-light-grey);
+    }
 
-        .main-activity-wrapper {
-            width: 90%; /* Take 90% width of parent (body) for responsiveness */
-            max-width: 900px; /* Set a larger max-width for the whole activity */
-            background-color: white; /* Background for the entire activity content area */
-            border: 1px solid var(--brand-purple-medium);
-            border-radius: 8px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Slightly stronger shadow for the main container */
-            overflow: hidden; /* Ensure nothing spills out */
-        }
+    .main-activity-wrapper {
+      width: 90%;
+      max-width: 900px;
+      background-color: white;
+      border: 1px solid var(--brand-purple-medium);
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
 
-        .activity-title {
-            background-color: var(--brand-purple-dark);
-            color: white;
-            text-align: center;
-            padding: 15px 20px;
-            margin: 0; /* Remove default margin from h1 */
-            font-size: 1.8em;
-            font-weight: bold; /* Ensure main title is bold */
-            border-bottom: 3px solid var(--brand-green-dark);
-        }
+    .activity-title {
+      background-color: var(--brand-purple-dark);
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
+      margin: 0;
+      font-size: 1.8em;
+      font-weight: bold;
+      border-bottom: 3px solid var(--brand-green-dark);
+    }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; /* Space between rows */
-            padding: 20px; /* Padding inside the main activity wrapper */
-        }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
 
-        .row {
-            display: flex;
-            align-items: flex-start; /* Align items to the top */
-            border: 1px solid var(--brand-purple-medium); /* Border around each row */
-            padding: 15px;
-            overflow: hidden; /* Hide overflowing content during animation */
-            background-color: white; /* Background for each row */
-            border-radius: 8px; /* Slightly rounded corners for rows */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for rows */
-        }
+    .row {
+      display: flex;
+      align-items: flex-start;
+      border: 1px solid var(--brand-purple-medium);
+      padding: 15px;
+      overflow: hidden;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
 
-        .image-wrapper {
-            flex-shrink: 0; /* Prevent image from shrinking */
-            width: 200px; /* Fixed width for the image container */
-            cursor: pointer;
-            text-align: center;
-            padding: 10px;
-            border-right: 1px solid var(--brand-purple-light); /* Separator line */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    .image-wrapper {
+      flex-shrink: 0;
+      width: 200px;
+      cursor: pointer;
+      text-align: center;
+      padding: 10px;
+      border-right: 1px solid var(--brand-purple-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .image-wrapper img {
-            max-width: 100%;
-            height: auto;
-            display: block; /* Remove extra space below image */
-            border: 2px solid var(--brand-green-dark); /* Border around image */
-            border-radius: 4px; /* Slightly rounded corners for image */
-            transition: transform 0.2s ease-in-out; /* Smooth hover effect */
-        }
+    .image-wrapper img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: 2px solid var(--brand-green-dark);
+      border-radius: 4px;
+      transition: transform 0.2s ease-in-out;
+    }
 
-        .image-wrapper img:hover {
-            transform: scale(1.03); /* Slight zoom on hover */
-        }
+    .image-wrapper img:hover {
+      transform: scale(1.03);
+    }
 
-        .image-wrapper p {
-            font-size: 0.9em;
-            color: var(--brand-purple-dark);
-            margin-top: 10px;
-            font-weight: bold;
-        }
+    .image-wrapper p {
+      font-size: 0.9em;
+      color: var(--brand-purple-dark);
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-        .info-wrapper {
-            flex-grow: 1; /* Allow info to take remaining space */
-            margin-left: 20px; /* Space between image and info */
-            position: relative;
-            /* Initially hide content to the right */
-            transform: translateX(100%);
-            opacity: 0;
-            transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Smooth transition */
-            background-color: var(--brand-light-grey); /* Your specified background colour */
-            padding: 15px;
-            border: 1px solid var(--brand-purple-dark); /* Your specified border around container */
-            border-left: 5px solid var(--brand-purple-dark); /* Your specified left border colour */
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            border-radius: 4px; /* Rounded corners for info box */
-        }
+    .info-wrapper {
+      flex-grow: 1;
+      margin-left: 20px;
+      position: relative;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      background-color: var(--brand-light-grey);
+      padding: 15px;
+      border: 1px solid var(--brand-purple-dark);
+      border-left: 5px solid var(--brand-purple-dark);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      border-radius: 4px;
+    }
 
-        .info-wrapper.active {
-            transform: translateX(0); /* Slide in */
-            opacity: 1; /* Fade in */
-        }
+    .info-wrapper.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
 
-        h3 { /* Changed h2 to h3 for sub-headings within info boxes */
-            font-family: 'Open Sans', sans-serif; /* Ensure headings use Open Sans */
-            color: var(--brand-purple-dark); /* Heading colour */
-            margin-top: 0;
-            margin-bottom: 15px;
-            font-weight: bold; /* Ensure h3 headings are bold */
-        }
+    h3 {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--brand-purple-dark);
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
 
-        p, ul {
-            font-family: 'Open Sans', sans-serif; /* Ensure paragraphs and lists use Open Sans */
-            color: #555; /* General text colour */
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
+    p, ul {
+      font-family: 'Open Sans', sans-serif;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
 
-        ul {
-            padding-left: 20px;
-        }
+    ul {
+      padding-left: 20px;
+    }
 
-        ul ul { /* For nested lists like the transmission types */
-            margin-top: 5px;
-            margin-bottom: 5px;
-        }
+    ul ul {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
 
-        strong {
-            color: var(--brand-green-dark); /* Emphasise bold text with a brand colour */
-        }
+    strong {
+      color: var(--brand-green-dark);
+    }
 
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 768px) {
-            .row {
-                flex-direction: column; /* Stack image and info vertically */
-                align-items: center; /* Center items when stacked */
-            }
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
 
-            .image-wrapper {
-                width: 100%; /* Image wrapper takes full width */
-                border-right: none; /* Remove vertical separator */
-                border-bottom: 1px solid var(--brand-purple-light); /* Add horizontal separator */
-                padding-bottom: 15px; /* Add padding below image */
-            }
+      .image-wrapper {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--brand-purple-light);
+        padding-bottom: 15px;
+      }
 
-            .info-wrapper {
-                margin-left: 0; /* Remove left margin when stacked */
-                margin-top: 20px; /* Add space above info wrapper */
-                width: 100%; /* Info wrapper takes full width */
-            }
-        }
-    </style>
+      .info-wrapper {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="main-activity-wrapper">
-        <h1 class="activity-title">A Two-Tiered Approach to Comprehensive Risk Control</h1> <!-- Updated main title -->
+  <div class="main-activity-wrapper">
+    <h1 class="activity-title">A Two-Tiered Approach to Comprehensive Risk Control</h1>
 
-        <div class="container">
+    <div class="container">
 
-            <div class="row">
-                <div class="image-wrapper" onclick="toggleInfo(this, 'standardPrecautionsInfo')">
-                    <!-- Updated image source and alt text -->
-                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Tier%201%20Foundational%20or1%20Universal%20Risk%20Controls.png" alt="Tier 1 Foundational Universal Risk Controls Icon">
-                    <p>Tier 1 Foundational or Universal Risk Controls</p> <!-- Removed colon -->
-                </div>
-                <div id="standardPrecautionsInfo" class="info-wrapper">
-                    <h3>Tier 1: Foundational or Universal Risk Controls</h3>
-                    <p>
-                        These are the <strong>minimum, baseline safety practices</strong> used for all routine operations and individuals, regardless of specific known risks. They're the everyday precautions dental practices put in place:
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>Infection Control:</strong> This includes <strong>Standard Precautions</strong> like consistent hand hygiene, universal <strong>Personal Protective Equipment (PPE)</strong> such as gloves and masks, and thorough instrument sterilisation for all patients. It operates on the principle of treating all bodily fluids as potentially infectious.
-                        </li>
-                        <li>
-                            <strong>Other Risks:</strong>
-                            <ul>
-                                <li><strong>Ergonomics:</strong> We ensure universally ergonomic operatory setups and promote regular staff stretching to prevent strain.</li>
-                                <li><strong>Chemical Safety:</strong> This involves the secure storage and clear labelling of all chemicals, alongside general ventilation throughout the practice.</li>
-                                <li><strong>Physical Hazards:</strong> Keeping walkways clear, immediately cleaning up spills, and conducting routine equipment checks are essential to prevent accidents.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="image-wrapper" onclick="toggleInfo(this, 'transmissionPrecautionsInfo')">
-                    <!-- Updated image source and alt text -->
-                    <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Tier%202%20Enhanced%20or1%20Specific%20Risk%20Controls.png" alt="Tier 2 Enhanced Specific Risk Controls Icon">
-                    <p>Tier 2 Enhanced or Specific Risk Controls</p> <!-- Removed colon -->
-                </div>
-                <div id="transmissionPrecautionsInfo" class="info-wrapper">
-                    <h3>Tier 2: Enhanced or Specific Risk Controls</h3>
-                    <p>
-                        These are <strong>additional, targeted measures</strong> implemented when specific, elevated hazards are identified or suspected. They build upon the foundational controls, providing an extra layer of protection when needed:
-                    </p>
-                    <ul>
-                        <li>
-                            <strong>Infection Control:</strong> This involves <strong>Transmission-Based Precautions</strong>, such as using P2 respirators for airborne pathogens or implementing isolation protocols when a patient is known or suspected to have a specific transmissible infection (e.g., airborne, droplet, or contact).
-                        </li>
-                        <li>
-                            <strong>Other Risks:</strong>
-                            <ul>
-                                <li><strong>Ergonomics:</strong> We use specialised ergonomic tools or workstation redesign when staff experience specific musculoskeletal discomfort, tailoring solutions to their needs.</li>
-                                <li><strong>Chemical Safety:</strong> This includes requiring specialised PPE, like chemical-resistant gloves or respirators, when handling highly volatile substances.</li>
-                                <li><strong>Physical Hazards:</strong> We implement specific lockout/tagout procedures for equipment undergoing repair to prevent accidental activation.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+      <div class="row">
+        <div class="image-wrapper" onclick="toggleInfo(this, 'standardPrecautionsInfo')">
+          <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Tier%201%20Foundational%20or%20Universal%20Risk%20Controls.png" alt="Tier 1 Foundational Universal Risk Controls Icon">
+          <p>Tier 1 Foundational or Universal Risk Controls</p>
         </div>
+        <div id="standardPrecautionsInfo" class="info-wrapper">
+          <h3>Tier 1: Foundational or Universal Risk Controls</h3>
+          <p>These are the <strong>minimum, baseline safety practices</strong> used for all routine operations and individuals, regardless of specific known risks. They're the everyday precautions dental practices put in place:</p>
+          <ul>
+            <li><strong>Infection Control:</strong> Standard Precautions like hand hygiene, PPE (gloves, masks), and instrument sterilisation for all patients.</li>
+            <li><strong>Other Risks:</strong>
+              <ul>
+                <li><strong>Ergonomics:</strong> Ergonomic setups and staff stretching.</li>
+                <li><strong>Chemical Safety:</strong> Proper storage/labelling and ventilation.</li>
+                <li><strong>Physical Hazards:</strong> Clear walkways, clean spills, routine checks.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="image-wrapper" onclick="toggleInfo(this, 'transmissionPrecautionsInfo')">
+          <img src="https://raw.githubusercontent.com/DapaLMS1/Two-tiered-infection-control-structure/main/Tier%202%20Enhanced%20or%20Specific%20Risk%20Controls.png" alt="Tier 2 Enhanced Specific Risk Controls Icon">
+          <p>Tier 2 Enhanced or Specific Risk Controls</p>
+        </div>
+        <div id="transmissionPrecautionsInfo" class="info-wrapper">
+          <h3>Tier 2: Enhanced or Specific Risk Controls</h3>
+          <p>These are <strong>additional, targeted measures</strong> used when elevated hazards are identified. They build upon Tier 1 controls for added protection:</p>
+          <ul>
+            <li><strong>Infection Control:</strong> Transmission-Based Precautions (e.g., P2 respirators, isolation protocols for infectious patients).</li>
+            <li><strong>Other Risks:</strong>
+              <ul>
+                <li><strong>Ergonomics:</strong> Special tools or layout adjustments for staff in discomfort.</li>
+                <li><strong>Chemical Safety:</strong> Use of chemical-resistant PPE for volatile substances.</li>
+                <li><strong>Physical Hazards:</strong> Lockout/tagout during equipment repair.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <script>
-        function toggleInfo(clickedImageWrapper, infoId) {
-            const infoElement = document.getElementById(infoId);
-
-            // Close any open info panels in the same row
-            const currentRow = clickedImageWrapper.closest('.row');
-            const infoWrappersInRow = currentRow.querySelectorAll('.info-wrapper');
-            infoWrappersInRow.forEach(wrapper => {
-                if (wrapper.id !== infoId && wrapper.classList.contains('active')) {
-                    wrapper.classList.remove('active');
-                }
-            });
-
-            // Toggle the 'active' class to slide in/out the current info
-            infoElement.classList.toggle('active');
+  <script>
+    function toggleInfo(clickedImageWrapper, infoId) {
+      const infoElement = document.getElementById(infoId);
+      const currentRow = clickedImageWrapper.closest('.row');
+      const infoWrappersInRow = currentRow.querySelectorAll('.info-wrapper');
+      infoWrappersInRow.forEach(wrapper => {
+        if (wrapper.id !== infoId && wrapper.classList.contains('active')) {
+          wrapper.classList.remove('active');
         }
-    </script>
+      });
+      infoElement.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
